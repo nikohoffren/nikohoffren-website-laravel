@@ -27,7 +27,7 @@
         {{ session('language') === 'en' ? 'Copyright © 2020-2025 Niko Hoffrén' : 'Tekijänoikeus © 2020-2025 Niko Hoffrén' }}
       </p>
       <p>
-        {{ session('language') === 'en' ? 'Coded with Laravel + PHP. Hosted by Digital Ocean' : 'Koodattu Laravel + PHP:llä. Palveluntarjoaja Digital Ocean' }}
+        {{ session('language') === 'en' ? 'Coded with Laravel + PHP. Hosted by Digital Ocean' : 'Laravel + PHP + Digital Ocean' }}
       </p>
     </div>
   </div>
