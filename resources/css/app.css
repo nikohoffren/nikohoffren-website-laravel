@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset default styling */
+@layer base {
+  html, body {
+    @apply overflow-x-hidden max-w-full;
+    width: 100%;
+  }
+
+  ul {
+    @apply list-none;
+  }
+
+  /* Fix any potential layout issues */
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* Custom button styles */
+@layer components {
+  .btn-shine {
+    @apply relative overflow-hidden bg-blue-600 text-white font-bold py-2 px-6 rounded inline-block transition-all duration-300;
+    background: linear-gradient(to right, #4338ca, #3b82f6, #4338ca);
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+  }
+
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+  /* Add transition styles */
+  .slide-text-enter-active {
+    @apply transition-all duration-500 transform translate-x-0 opacity-100;
+  }
+  .slide-text-enter {
+    @apply -translate-x-12 opacity-0;
+  }
+
+  .slide-enter-active {
+    @apply transition-all duration-500 transform translate-y-0 opacity-100;
+  }
+  .slide-enter {
+    @apply translate-y-12 opacity-0;
+  }
+
+  /* Loader */
+  .loader {
+    @apply border-4 border-gray-200 rounded-full w-12 h-12;
+    border-top-color: #3498db;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
