@@ -25,6 +25,7 @@
       href="https://fonts.googleapis.com/css2?family=Cuprum:ital@0;1&display=swap"
       rel="stylesheet"
     />
+    
 
     <!-- Compiled Tailwind CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
