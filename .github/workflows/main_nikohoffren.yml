@@ -30,6 +30,17 @@ jobs:
         npm install
         npm run production
 
+    - name: Create .env file
+      run: |
+        cp .env.example .env
+        php artisan key:generate --force
+
+    - name: Prepare Laravel Application
+      run: |
+        chmod +x deploy.sh
+        php artisan config:cache
+        php artisan route:cache
+
     - name: Azure Login
       uses: azure/login@v1
       with:
