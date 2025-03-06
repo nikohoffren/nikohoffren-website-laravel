@@ -26,7 +26,6 @@
       rel="stylesheet"
     />
 
-    
     <!-- Compiled Tailwind CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
