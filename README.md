@@ -15,5 +15,5 @@ This repository contains the code for my personal portfolio website. The website
 
 **Build CSS:**
 ```bash
-npx tailwindcss -i resources/css/app.css -o public/css/app.css --minify
+npm run build
 ```
