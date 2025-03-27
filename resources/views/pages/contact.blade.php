@@ -11,8 +11,8 @@
             </h1>
             <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-300 sm:mt-4">
                 {{ session('language') === 'en'
-                    ? 'Have a question or want to work together? I would love to hear from you.'
-                    : 'Onko sinulla kysyttävää tai haluatko tehdä yhteistyötä? Kuulisin mielelläni sinusta.' }}
+                    ? "Have a question or want to work together? Let's connect via email or social media."
+                    : 'Onko sinulla kysyttävää tai haluatko tehdä yhteistyötä? Ota yhteyttä viestillä tai sosiaalisen median kautta.' }}
             </p>
         </div>
         <!-- Decorative background pattern -->
@@ -68,7 +68,7 @@
                 <!-- Social Links -->
                 <div class="bg-white/10 dark:bg-gray-800/10 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200/20 dark:border-gray-700/20 p-8">
                     <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-6">
-                        {{ session('language') === 'en' ? 'Connect with me' : 'Ota yhteyttä' }}
+                        {{ session('language') === 'en' ? 'Social Media Links' : 'Sosiaalisen median linkit' }}
                     </h2>
                     <div class="grid grid-cols-2 gap-6">
                         <a href="https://www.linkedin.com/in/nikohoffren" target="_blank" rel="noreferrer"

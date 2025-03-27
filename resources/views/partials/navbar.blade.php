@@ -53,30 +53,34 @@
   <div id="mobile-menu" class="fixed inset-0 z-[9998] transform transition-all duration-300 ease-in-out opacity-0 translate-x-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg sm:hidden" style="-webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); transform: translateZ(0); -webkit-transform: translateZ(0);">
     <div class="pt-20 pb-6 px-4">
       <div class="flex flex-col space-y-6">
-        <a href="{{ route('home') }}#skills" class="nav-link text-lg font-medium">
+        <a href="{{ route('home') }}#skills" class="nav-link text-lg font-medium bg-gray-100/80 dark:bg-gray-800/80 rounded-lg px-4 py-3 text-gray-800 dark:text-gray-200 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-colors duration-200">
           {{ session('language') === 'en' ? 'SKILLS' : 'TAIDOT' }}
         </a>
-        <a href="{{ route('projects') }}" class="nav-link text-lg font-medium">
+        <a href="{{ route('projects') }}" class="nav-link text-lg font-medium bg-gray-100/80 dark:bg-gray-800/80 rounded-lg px-4 py-3 text-gray-800 dark:text-gray-200 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-colors duration-200">
           {{ session('language') === 'en' ? 'PROJECTS' : 'PROJEKTIT' }}
         </a>
-        <a href="{{ route('contact') }}" class="nav-link text-lg font-medium">
+        <a href="{{ route('contact') }}" class="nav-link text-lg font-medium bg-gray-100/80 dark:bg-gray-800/80 rounded-lg px-4 py-3 text-gray-800 dark:text-gray-200 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-colors duration-200">
           {{ session('language') === 'en' ? 'CONTACT' : 'OTA YHTEYTTÄ' }}
         </a>
 
         <!-- Mobile Language Selector -->
-        <select id="mobile-language-selector" class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg px-3 py-2 text-base font-medium border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-          <option value="en" {{ session('language') === 'en' ? 'selected' : '' }}>EN</option>
-          <option value="fi" {{ session('language') === 'fi' ? 'selected' : '' }}>FI</option>
-        </select>
+        <div class="flex justify-start">
+          <select id="mobile-language-selector" class="w-32 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg px-3 py-2 text-base font-medium border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <option value="en" {{ session('language') === 'en' ? 'selected' : '' }}>EN</option>
+            <option value="fi" {{ session('language') === 'fi' ? 'selected' : '' }}>FI</option>
+          </select>
+        </div>
 
         <!-- Mobile Theme Toggle -->
-        <button class="toggle-theme p-3 rounded-lg bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200">
-          @if(session('theme') === 'light')
-          <img src="{{ asset('sun.png') }}" alt="Sun icon" class="h-6 w-6 theme-icon brightness-75 contrast-200">
-          @else
-          <img src="{{ asset('moon.png') }}" alt="Moon icon" class="h-6 w-6 theme-icon">
-          @endif
-        </button>
+        <div class="flex justify-start">
+          <button class="toggle-theme p-3 rounded-lg bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200">
+            @if(session('theme') === 'light')
+            <img src="{{ asset('sun.png') }}" alt="Sun icon" class="h-6 w-6 theme-icon brightness-75 contrast-200">
+            @else
+            <img src="{{ asset('moon.png') }}" alt="Moon icon" class="h-6 w-6 theme-icon">
+            @endif
+          </button>
+        </div>
       </div>
     </div>
   </div>

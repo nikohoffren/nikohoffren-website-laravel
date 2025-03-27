@@ -63,7 +63,7 @@
                     </p>
                     <div class="flex items-center space-x-2">
                         <span class="text-sm text-gray-500 dark:text-gray-400">
-                            {{ session('language') === 'en' ? 'Built with' : 'Tehty käyttäen' }}
+                            {{ session('language') === 'en' ? 'Built with' : '' }}
                         </span>
                         <div class="flex items-center space-x-2">
                             <img src="https://laravel.com/img/favicon/favicon.ico" alt="Laravel" class="h-4 w-4">

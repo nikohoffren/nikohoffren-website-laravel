@@ -10,7 +10,7 @@
                 <span class="text-indigo-400">Portfolio</span>
             </h1>
             <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-300 sm:mt-4">
-                {{ session('language') === 'en' ? 'Explore my collection of projects and open-source contributions' : 'Tutustu projekteihin ja avoimen lähdekoodin kontribuutioihin' }}
+                {{ session('language') === 'en' ? 'Explore my collection of projects and open-source contributions' : 'Tutustu projekteihini ja avoimen lähdekoodin kontribuutioihini' }}
             </p>
             <div class="mt-8">
                 <a href="https://github.com/nikohoffren" target="_blank" rel="noreferrer"
@@ -38,11 +38,7 @@
 
     <!-- Projects Grid -->
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <!-- Featured Projects Section -->
         <div class="mb-16">
-            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-8">
-                {{ session('language') === 'en' ? 'Featured Projects' : 'Keskeiset Projektit' }}
-            </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Dead Code Hunter -->
                 <div class="group relative bg-white/10 dark:bg-gray-800/10 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200/20 dark:border-gray-700/20 overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] flex flex-col h-[500px]">
@@ -126,13 +122,16 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Fork, Commit, Merge</h3>
-                            <span class="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">Learning Platform</span>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">{{ session('language') === 'en'
+                                ? 'Fork, Commit, Merge -website'
+                                : 'Fork, Commit, Merge -verkkosivusto'
+                            }}</h3>
+                            <span class="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">Website</span>
                         </div>
                         <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
                             {{ session('language') === 'en'
-                                ? 'A comprehensive platform for learning GitHub contributions and open source development.'
-                                : 'Kattava alusta GitHub-kontribuutioiden ja avoimen lähdekoodin kehityksen oppimiseen.'
+                                ? 'Website of Fork, Commit, Merge project.'
+                                : 'Fork, Commit, Merge -projektin verkkosivusto.'
                             }}
                         </p>
                         <div class="mt-auto">
@@ -150,7 +149,6 @@
                                 <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">Next.js</span>
                                 <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">TypeScript</span>
                                 <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">MongoDB</span>
-                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">AWS S3</span>
                             </div>
                         </div>
                     </div>
@@ -158,11 +156,7 @@
             </div>
         </div>
 
-        <!-- Other Projects Section -->
         <div>
-            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-8">
-                {{ session('language') === 'en' ? 'Other Notable Projects' : 'Muut Merkittävät Projektit' }}
-            </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Fork, Commit, Merge GitHub Project -->
                 <div class="group relative bg-white/10 dark:bg-gray-800/10 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200/20 dark:border-gray-700/20 overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] flex flex-col h-[500px]">
@@ -172,13 +166,13 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">FCM GitHub Project</h3>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Fork, Commit, Merge</h3>
                             <span class="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">Learning</span>
                         </div>
                         <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
-                            {{ session('language') === 'en'
-                                ? 'Interactive project for learning GitHub contribution workflow with hands-on exercises.'
-                                : 'Interaktiivinen projekti GitHub-kontribuutioiden työnkulun oppimiseen käytännön harjoituksilla.'
+                           {{ session('language') === 'en'
+                                ? 'A comprehensive platform for learning GitHub contributions and open source development.'
+                                : 'Kattava alusta GitHub-kontribuutioiden ja avoimen lähdekoodin kehityksen oppimiseen.'
                             }}
                         </p>
                         <div class="mt-auto">
@@ -241,7 +235,10 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Kuopio Transport</h3>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">{{ session('language') === 'en'
+                                ? 'Kuopio Public Transport'
+                                : 'Kuopion Julkinen Liikenne'
+                            }}</h3>
                             <span class="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">Web App</span>
                         </div>
                         <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
