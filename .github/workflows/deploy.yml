@@ -1,0 +1,38 @@
+name: Deploy to Linode
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.LINODE_SSH_KEY }}
+
+      - name: Add known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.LINODE_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to Linode
+        run: |
+          # Pull latest changes
+          ssh ${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }} 'cd /var/www/nikohoffren-website && git pull origin main'
+
+          # Install/update dependencies
+          ssh ${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }} 'cd /var/www/nikohoffren-website && composer install --no-interaction --prefer-dist --optimize-autoloader'
+
+          # Build assets
+          ssh ${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }} 'cd /var/www/nikohoffren-website && npm install && npm run build'
+
+          # Clear and cache configurations
+          ssh ${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }} 'cd /var/www/nikohoffren-website && php artisan config:cache && php artisan route:cache && php artisan view:cache'
+
+          # Set proper permissions
+          ssh ${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }} 'cd /var/www/nikohoffren-website && sudo chown -R www-data:www-data storage bootstrap/cache'
