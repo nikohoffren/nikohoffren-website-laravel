@@ -1,407 +1,396 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="py-10 px-8 md:px-16 rounded-lg my-10 mx-4 md:mx-8 lg:mx-16">
-  <div class="py-10"></div>
-  <h1 class="text-5xl font-bold mb-10 text-center">
-    {{ session('language') === 'en' ? 'PROJECTS' : 'PROJEKTIT' }}
-  </h1>
+<div class="min-h-screen">
+    <!-- Hero Section -->
+    <div class="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 text-center">
+        <div class="relative z-10 max-w-7xl mx-auto">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">
+                {{ session('language') === 'en' ? 'Projects' : 'Projektit' }}
+                <span class="text-indigo-400">Portfolio</span>
+            </h1>
+            <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-300 sm:mt-4">
+                {{ session('language') === 'en' ? 'Explore my collection of projects and open-source contributions' : 'Tutustu projekteihin ja avoimen lähdekoodin kontribuutioihin' }}
+            </p>
+            <div class="mt-8">
+                <a href="https://github.com/nikohoffren" target="_blank" rel="noreferrer"
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200">
+                    <i class="fab fa-github mr-2"></i>
+                    {{ session('language') === 'en' ? 'View on GitHub' : 'Katso Githubissa' }}
+                </a>
+            </div>
+        </div>
 
-  <p class="mb-6 text-center">
-    {{ session('language') === 'en' ? 'Find all of my projects and open-source contributions on ' : 'Löydät kaikki projektini sekä avoimen lähdekoodin kontribuutioni ' }}
-    <a href="https://www.github.com/nikohoffren" class="text-blue-500 hover:text-blue-700 underline" target="_blank"
-      rel="noreferrer">
-      {{ session('language') === 'en' ? 'Github' : 'Githubista' }}
-    </a>.
-  </p>
-    <div class="flex justify-center items-center my-8">
-    <div class="sponsor-container" style="width: 650px; max-width: 100%; overflow: hidden;">
-      <iframe src="https://github.com/sponsors/nikohoffren/card" title="Sponsor nikohoffren"
-        style="width: 100%; border: 0; border-radius: 0.75rem; transform: scale(0.97);"
-        scrolling="no" id="sponsor-iframe"></iframe>
-    </div>
-  </div>
-
-  <script>
-    // Adjust iframe height based on screen width
-    function adjustSponsorHeight() {
-      const iframe = document.getElementById('sponsor-iframe');
-      const container = document.querySelector('.sponsor-container');
-
-      if (window.innerWidth < 550) {
-        // For mobile screens, increase height to accommodate the wrapped sponsor button
-        iframe.style.height = '170px';
-        container.style.height = '170px';
-      } else {
-        // For larger screens, use the original height
-        iframe.style.height = '110px';
-        container.style.height = '110px';
-      }
-    }
-
-    // Run when the page loads
-    document.addEventListener('DOMContentLoaded', adjustSponsorHeight);
-
-    // Also run when the window is resized
-    window.addEventListener('resize', adjustSponsorHeight);
-  </script>
-  <div
-    class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-    <!-- Dead Code Hunter -->
-    <div class="overflow-hidden shadow-lg rounded-lg h-auto md:h-120 w-full md:w-full m-auto">
-      <a href="https://marketplace.visualstudio.com/items?itemName=niko-hoffren.dead-code-hunter" target="_blank"
-        class="w-full block h-full">
-        <div id="loader1" class="loader mx-auto"></div>
-        <img src="{{ asset('dead-code-hunter-logo.png') }}" alt="Dead Code Hunter -logo"
-          class="max-h-40 w-full object-cover" onload="document.getElementById('loader1').style.display = 'none';">
-      </a>
-      <div class="bg-white dark:bg-gray-800 w-full p-4">
-        <h2 class="text-xl font-medium text-black dark:text-white pb-2">
-          {{ session('language') === 'en' ? 'DEAD CODE HUNTER - VS Code Extension' : 'DEAD CODE HUNTER - VS Code Laajennus' }}
-        </h2>
-        <p class="text-md text-gray-800 dark:text-white py-2">
-          @if(session('language') === 'en')
-          Dead Code Hunter is a Visual Studio Code extension designed to help developers track and manage unused code in
-          their
-          projects. It integrates with the VS Code diagnostic system to detect errors, warnings, and dead code across
-          your files and lists them in an
-          easy-to-navigate panel. Tools: TypeScript.
-          @else
-          Dead Code Hunter on Visual Studio Code -laajennus, joka auttaa kehittäjiä jäljittämään ja hallitsemaan
-          käyttämätöntä koodia
-          projekteissaan. Se integroituu VS Coden diagnostiikkajärjestelmään havaitakseen virheet, varoitukset
-          ja kuolleen koodin ja listaa ne helposti selattavaan paneeliin. Työkalut: TypeScript.
-          @endif
-        </p>
-        <a href="https://marketplace.visualstudio.com/items?itemName=niko-hoffren.dead-code-hunter" target="_blank"
-          class="text-blue-500 hover:text-blue-300 italic">
-          Dead Code Hunter in VS Code Marketplace
-        </a>
-        <br>
-        <a href="https://github.com/nikohoffren/dead-code-hunter" target="_blank"
-          class="text-blue-500 hover:text-blue-300 italic">
-          {{ session('language') === 'en' ? 'Github source code' : 'Github lähdekoodi' }}
-        </a>
-        <p class="text-sm text-gray-900 dark:text-white italic my-2">
-          2025 - present
-        </p>
-      </div>
+        <!-- Decorative background pattern -->
+        <div class="absolute inset-0 bg-[url('/public/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
     </div>
 
-    <!-- Hunajaholistin Hunaja -->
-    <div class="overflow-hidden shadow-lg rounded-lg h-auto md:h-120 w-full md:w-full m-auto">
-      <a href="https://www.hunajaholisti.fi" target="_blank" class="w-full block h-full">
-        <div id="loader2" class="loader mx-auto"></div>
-        <img src="{{ asset('HHlahja.jpg') }}" alt="Bottle of delicious honey from Hunajaholistin Hunaja"
-          class="max-h-40 w-full object-cover" onload="document.getElementById('loader2').style.display = 'none';">
-      </a>
-      <div class="bg-white dark:bg-gray-800 w-full p-4">
-        <h2 class="text-xl font-medium text-black dark:text-white pb-2">
-          {{ session('language') === 'en' ? 'HUNAJAHOLISTIN HUNAJA - E-Commerce Website' : 'HUNAJAHOLISTIN HUNAJA - Verkkosivusto' }}
-        </h2>
-        <p class="text-md text-gray-800 dark:text-white py-2">
-          @if(session('language') === 'en')
-          Finnish e-commerce platform designed for the sale of honey products, featuring an integrated shopping cart and
-          secure
-          checkout functionality powered by Stripe. Tools: React, Vite, TypeScript, Tailwind CSS, Netlify Functions,
-          Firebase and Stripe.
-          <br><br>
-          @else
-          Suomalainen verkkokauppa-alusta hunajatuotteiden myyntiin, joka sisältää integroidun ostoskorin ja turvallisen
-          Stripe-maksutoiminnon.
-          <br><br>
-          Työkalut: React, Vite, TypeScript, Tailwind CSS, Netlify Functions, Firebase ja Stripe.
-          @endif
-        </p>
-        <a href="https://www.hunajaholisti.fi" target="_blank" class="text-blue-500 hover:text-blue-300 italic">
-          hunajaholisti.fi
-        </a>
-        <br>
-        <a href="https://github.com/nikohoffren/hunajaholisti-homepage" target="_blank"
-          class="text-blue-500 hover:text-blue-300 italic">
-          {{ session('language') === 'en' ? 'Github source code' : 'Github lähdekoodi' }}
-        </a>
-        <p class="text-sm text-gray-900 dark:text-white italic my-2">
-          {{ session('language') === 'en' ? '2021 - present' : '2021 - nykyhetki' }}
-        </p>
-      </div>
+    <!-- GitHub Sponsors Section -->
+    <div class="relative -mt-10 z-20 mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+        <div class="bg-white/10 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200/20 dark:border-gray-700/20 overflow-hidden">
+            <div class="sponsor-container p-4" style="width: 100%; overflow: hidden;">
+                <iframe src="https://github.com/sponsors/nikohoffren/card" title="Sponsor nikohoffren"
+                    style="width: 100%; border: 0; border-radius: 0.75rem; transform: scale(0.97);"
+                    scrolling="no" id="sponsor-iframe"></iframe>
+            </div>
+        </div>
     </div>
 
-    <!-- Fork, Commit, Merge Website -->
-    <div class="overflow-hidden shadow-lg rounded-lg h-auto md:h-120 w-full md:w-full m-auto">
-      <a href="https://forkcommitmerge.vercel.app/" target="_blank" class="w-full block h-full">
-        <div id="loader3" class="loader mx-auto"></div>
-        <img src="{{ asset('fork-commit-merge-web-banner.png') }}" alt="Fork, Commit, Merge -banner"
-          class="max-h-40 w-full object-cover" onload="document.getElementById('loader3').style.display = 'none';">
-      </a>
-      <div class="bg-white dark:bg-gray-800 w-full p-4">
-        <h2 class="text-xl font-medium text-black dark:text-white pb-2">
-          {{ session('language') === 'en' ? 'FORK, COMMIT, MERGE - Website' : 'FORK, COMMIT, MERGE - Verkkosivusto' }}
-        </h2>
-        <p class="text-md text-gray-800 dark:text-white py-2">
-          @if(session('language') === 'en')
-          Welcome to Fork, Commit, Merge! Your one-stop resource hub for mastering GitHub contributions! Whether you're
-          a novice coder
-          or an experienced developer, our comprehensive guides are designed to streamline your GitHub journey. Tools:
-          React,
-          NextJS, TypeScript, Tailwind CSS, MongoDB and AWS S3.
-          <br><br><br>
-          @else
-          Tämä sivusto on yhden pysähdyksen resurssikeskus GitHub-kontribuutioiden hallitsemiseen! Riippumatta siitä,
-          oletko aloitteleva koodaaja vai kokenut kehittäjä, kattavat oppaamme on suunniteltu helpottamaan
-          GitHub-matkaasi.
-          Työkalut: React, NextJS, TypeScript, Tailwind CSS, MongoDB ja AWS S3.
-          <br><br>
-          @endif
-        </p>
-        <a href="https://forkcommitmerge.vercel.app/" target="_blank" class="text-blue-500 hover:text-blue-300 italic">
-          https://forkcommitmerge.vercel.app/
-        </a>
-        <br>
-        <a href="https://github.com/nikohoffren/fork-commit-merge-web" target="_blank"
-          class="text-blue-500 hover:text-blue-300 italic">
-          {{ session('language') === 'en' ? 'Github source code' : 'Github lähdekoodi' }}
-        </a>
-        <p class="text-sm text-gray-900 dark:text-white italic my-2">
-          2023 - present
-        </p>
-      </div>
-    </div>
+    <!-- Projects Grid -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <!-- Featured Projects Section -->
+        <div class="mb-16">
+            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-8">
+                {{ session('language') === 'en' ? 'Featured Projects' : 'Keskeiset Projektit' }}
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dead Code Hunter -->
+                <div class="group relative bg-white/10 dark:bg-gray-800/10 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200/20 dark:border-gray-700/20 overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] flex flex-col h-[500px]">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                        <img src="{{ asset('dead-code-hunter-logo.png') }}" alt="Dead Code Hunter -logo"
+                            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Dead Code Hunter</h3>
+                            <span class="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">VS Code Extension</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                            {{ session('language') === 'en'
+                                ? 'A powerful VS Code extension for tracking and managing unused code in your projects.'
+                                : 'Tehokas VS Code -laajennus käyttämättömän koodin jäljittämiseen ja hallintaan projekteissasi.'
+                            }}
+                        </p>
+                        <div class="mt-auto">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <a href="https://marketplace.visualstudio.com/items?itemName=niko-hoffren.dead-code-hunter" target="_blank"
+                                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200">
+                                    <i class="fas fa-external-link-alt mr-1"></i> View Project
+                                </a>
+                                <a href="https://github.com/nikohoffren/dead-code-hunter" target="_blank"
+                                    class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-200">
+                                    <i class="fab fa-github mr-1"></i> Source
+                                </a>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">TypeScript</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">VS Code API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Fork, Commit, Merge GitHub project -->
-    <div class="overflow-hidden shadow-lg rounded-lg h-auto md:h-120 w-full md:w-full m-auto">
-      <a href="https://github.com/nikohoffren/fork-commit-merge" target="_blank" class="w-full block h-full">
-        <div id="loader4" class="loader mx-auto"></div>
-        <img src="{{ asset('fork-commit-merge-logo.jpg') }}" alt="Fork, Commit, Merge -logo"
-          class="max-h-40 w-full object-cover" onload="document.getElementById('loader4').style.display = 'none';">
-      </a>
-      <div class="bg-white dark:bg-gray-800 w-full p-4">
-        <h2 class="text-xl font-medium text-black dark:text-white pb-2">
-          {{ session('language') === 'en' ? 'FORK, COMMIT, MERGE - Github project for learning to contribute' : 'FORK, COMMIT, MERGE - Github projekti kontribuutioiden opettelemiseen' }}
-        </h2>
-        <p class="text-md text-gray-800 dark:text-white py-2">
-          @if(session('language') === 'en')
-          A project designed to help you familiarize yourself with the open source contribution workflow on GitHub! We present tasks
-          of varying difficulty. You're free to choose of many different languages and frameworks. Tools: JavaScript, Node.js.
-          <br>
-          @else
-          Projekti, joka on suunniteltu auttamaan sinua perehtymään avoimen lähdekoodin kontribuutioiden työnkulkuun GitHubissa!
-          Tarjoamme useita eri tehtäviä eri vaikeusasteilla. Työkalut: JavaScript, Node.js.
-          @endif
-        </p>
-        <a href="https://github.com/nikohoffren/fork-commit-merge" target="_blank"
-          class="text-blue-500 hover:text-blue-300 italic">
-          {{ session('language') === 'en' ? 'Github source code' : 'Github lähdekoodi' }}
-        </a>
-        <p class="text-sm text-gray-900 dark:text-white italic my-2">
-          2023 - present
-        </p>
-      </div>
-    </div>
+                <!-- Hunajaholistin Hunaja -->
+                <div class="group relative bg-white/10 dark:bg-gray-800/10 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200/20 dark:border-gray-700/20 overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] flex flex-col h-[500px]">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                        <img src="{{ asset('HHlahja.jpg') }}" alt="Hunajaholistin Hunaja"
+                            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Hunajaholistin Hunaja</h3>
+                            <span class="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">E-Commerce</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                            {{ session('language') === 'en'
+                                ? 'Modern e-commerce platform for honey products with integrated shopping cart and Stripe payments.'
+                                : 'Moderni verkkokauppa-alusta hunajatuotteille integroidulla ostoskorilla ja Stripe-maksuilla.'
+                            }}
+                        </p>
+                        <div class="mt-auto">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <a href="https://www.hunajaholisti.fi" target="_blank"
+                                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200">
+                                    <i class="fas fa-external-link-alt mr-1"></i> Visit Site
+                                </a>
+                                <a href="https://github.com/nikohoffren/hunajaholisti-homepage" target="_blank"
+                                    class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-200">
+                                    <i class="fab fa-github mr-1"></i> Source
+                                </a>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">React</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">TypeScript</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">Stripe</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Stolen Or Not? -->
-    <div class="overflow-hidden shadow-lg rounded-lg h-auto md:h-120 w-full md:w-full m-auto">
-      <a href="https://play.google.com/store/apps/details?id=com.nikohoffren.stolen_gear_app" target="_blank" class="w-full block h-full">
-        <div id="loader5" class="loader mx-auto"></div>
-        <img src="{{ asset('stolen-gear-logo.jpeg') }}" alt="StolenOrNot? app logo"
-          class="max-h-40 w-full object-cover" onload="document.getElementById('loader5').style.display = 'none';">
-      </a>
-      <div class="bg-white dark:bg-gray-800 w-full p-4">
-        <h2 class="text-xl font-medium text-black dark:text-white pb-2">
-          {{ session('language') === 'en' ? 'Stolen Or Not? - Flutter App' : 'Stolen Or Not? - Flutter Mobiilisovellus' }}
-        </h2>
-        <p class="text-md text-gray-800 dark:text-white py-2">
-          @if(session('language') === 'en')
-          This Flutter application is built to help people keep track of their valuable devices and protect them from theft.
-          It allows users to register their devices, such as computers, cars, musical instruments, and more.
-          Tools: Flutter, Dart & Firebase.
-          @else
-          Tämä Flutter-sovellus on rakennettu auttamaan ihmisiä pitämään kirjaa arvokkaista laitteistaan ja suojaamaan niitä
-          varkauksilta.
-          <br><br>
-          Saatavilla Google Play Store:sta. Työkalut: Flutter, Dart & Firebase.
-          @endif
-        </p>
-        <br>
-        <a href="https://github.com/nikohoffren/stolen-or-not-app" target="_blank"
-          class="text-blue-500 hover:text-blue-300 italic">
-          {{ session('language') === 'en' ? 'Github source code' : 'Github lähdekoodi' }}
-        </a>
-        <p class="text-sm text-gray-900 dark:text-white italic my-2">
-          2023 - present
-        </p>
-      </div>
-    </div>
+                <!-- Fork, Commit, Merge Website -->
+                <div class="group relative bg-white/10 dark:bg-gray-800/10 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200/20 dark:border-gray-700/20 overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] flex flex-col h-[500px]">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                        <img src="{{ asset('fork-commit-merge-web-banner.png') }}" alt="Fork, Commit, Merge"
+                            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Fork, Commit, Merge</h3>
+                            <span class="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">Learning Platform</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                            {{ session('language') === 'en'
+                                ? 'A comprehensive platform for learning GitHub contributions and open source development.'
+                                : 'Kattava alusta GitHub-kontribuutioiden ja avoimen lähdekoodin kehityksen oppimiseen.'
+                            }}
+                        </p>
+                        <div class="mt-auto">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <a href="https://forkcommitmerge.vercel.app/" target="_blank"
+                                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200">
+                                    <i class="fas fa-external-link-alt mr-1"></i> Visit Site
+                                </a>
+                                <a href="https://github.com/nikohoffren/fork-commit-merge-web" target="_blank"
+                                    class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-200">
+                                    <i class="fab fa-github mr-1"></i> Source
+                                </a>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">Next.js</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">TypeScript</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">MongoDB</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">AWS S3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-     <!-- Kuopio Public Transport -->
-    <div class="overflow-hidden shadow-lg rounded-lg h-auto md:h-120 w-full md:w-full m-auto">
-      <a href="https://kuopionjulkinenliikenne.live" target="_blank" class="w-full block h-full">
-        <div id="loader6" class="loader mx-auto"></div>
-        <img src="{{ asset('Vilkku_sydan_violetti.png') }}" alt="Vilkku logo"
-          class="max-h-40 w-full object-cover" onload="document.getElementById('loader6').style.display = 'none';">
-      </a>
-      <div class="bg-white dark:bg-gray-800 w-full p-4">
-    <h2 class="text-xl font-medium text-black dark:text-white pb-2">
-          {{ session('language') === 'en' ? 'KUOPIO PUBLIC TRANSPORT - Website' : 'KUOPION JULKINEN LIIKENNE - Verkkosivusto' }}
-        </h2>
-        <p class="text-md text-gray-800 dark:text-white py-2">
-          @if(session('language') === 'en')
-          This platform provides comprehensive real-time tracking and route information for all Vilkku buses, bicycles, and bike
-          taxis operating within the Kuopio/Siilinjärvi region.
-          <br>
-          Tools: JavaScript, Express.js & Netlify functions.
-          @else
-          Tämä alusta tarjoaa kattavaa reaaliaikaista seuranta- ja reittitietoa kaikille Vilkku-busseille, polkupyörille ja
-          polkupyörätakseille, jotka toimivat Kuopion/Siilinjärven alueella. Työkalut: JavaScript, Express.js & Netlify
-          functions.
-          @endif
-        </p>
-        <a href="https://kuopionjulkinenliikenne.live" target="_blank" class="text-blue-500 hover:text-blue-300 italic">
-          kuopionjulkinenliikenne.live
-        </a>
-        <br>
-        <a href="https://github.com/nikohoffren/kuopio-public-transport" target="_blank"
-          class="text-blue-500 hover:text-blue-300 italic">
-          {{ session('language') === 'en' ? 'Github source code' : 'Github lähdekoodi' }}
-        </a>
-        <p class="text-sm text-gray-900 dark:text-white italic my-2">
-          2023 - present
-        </p>
-      </div>
-    </div>
+        <!-- Other Projects Section -->
+        <div>
+            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-8">
+                {{ session('language') === 'en' ? 'Other Notable Projects' : 'Muut Merkittävät Projektit' }}
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Fork, Commit, Merge GitHub Project -->
+                <div class="group relative bg-white/10 dark:bg-gray-800/10 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200/20 dark:border-gray-700/20 overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] flex flex-col h-[500px]">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                        <img src="{{ asset('fork-commit-merge-logo.jpg') }}" alt="Fork, Commit, Merge GitHub"
+                            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">FCM GitHub Project</h3>
+                            <span class="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">Learning</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                            {{ session('language') === 'en'
+                                ? 'Interactive project for learning GitHub contribution workflow with hands-on exercises.'
+                                : 'Interaktiivinen projekti GitHub-kontribuutioiden työnkulun oppimiseen käytännön harjoituksilla.'
+                            }}
+                        </p>
+                        <div class="mt-auto">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <a href="https://github.com/nikohoffren/fork-commit-merge" target="_blank"
+                                    class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-200">
+                                    <i class="fab fa-github mr-1"></i> Source
+                                </a>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">JavaScript</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Niko Hoffrén Music -->
-    <div class="overflow-hidden shadow-lg rounded-lg h-auto md:h-120 w-full md:w-full m-auto">
-      <a href="https://nikohoffrenmusic.netlify.app" target="_blank" class="w-full block h-full">
-        <div id="loader7" class="loader mx-auto"></div>
-        <img src="{{ asset('NHbackground.jpg') }}" alt="Niko Hoffrén logo"
-          class="max-h-40 w-full object-cover" onload="document.getElementById('loader7').style.display = 'none';">
-      </a>
-      <div class="bg-white dark:bg-gray-800 w-full p-4">
-        <h2 class="text-xl font-medium text-black dark:text-white pb-2">
-          {{ session('language') === 'en' ? 'NIKO HOFFRÉN MUSIC - Website' : 'NIKO HOFFRÉN MUSIC - Verkkosivusto' }}
-        </h2>
-        <p class="text-md text-gray-800 dark:text-white py-2">
-          @if(session('language') === 'en')
-          This website contains info of my music production related stuff. The website shows all the information you need with
-          showcase of my music, videos and gear. It also supports language selection, allowing users to switch between Finnish
-          and English languages seamlessly. Tools: Vite, React, TypeScript.
-          <br><br>
-          @else
-          Tämä verkkosivusto sisältää tietoa musiikkituotantooni liittyvistä asioista. Verkkosivusto näyttää kaiken
-          tarvitsemasi tiedon musiikkini, videoideni ja soittimieni esittelyn avulla. Se tukee myös kielivalintaa, mahdollistaen
-          käyttäjien vaihtaa saumattomasti kielien välillä. Työkalut: Vite, React, TypeScript.
-          @endif
-        </p>
-        <a href="https://nikohoffrenmusic.netlify.app" target="_blank" class="text-blue-500 hover:text-blue-300 italic">
-          nikohoffrenmusic.netlify.app
-        </a>
-        <br>
-        <a href="https://github.com/nikohoffren/nikohoffrenmusic-homepage" target="_blank"
-          class="text-blue-500 hover:text-blue-300 italic">
-          {{ session('language') === 'en' ? 'Github source code' : 'Github lähdekoodi' }}
-        </a>
-        <p class="text-sm text-gray-900 dark:text-white italic my-2">
-          2020-present
-        </p>
-      </div>
-    </div>
+                <!-- Stolen Or Not? -->
+                <div class="group relative bg-white/10 dark:bg-gray-800/10 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200/20 dark:border-gray-700/20 overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] flex flex-col h-[500px]">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                        <img src="{{ asset('stolen-gear-logo.jpeg') }}" alt="Stolen Or Not?"
+                            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Stolen Or Not?</h3>
+                            <span class="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">Mobile App</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                            {{ session('language') === 'en'
+                                ? 'Flutter app for tracking valuable devices and protecting them from theft.'
+                                : 'Flutter-sovellus arvokkaiden laitteiden seurantaan ja suojaamiseen varkauksilta.'
+                            }}
+                        </p>
+                        <div class="mt-auto">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <a href="https://play.google.com/store/apps/details?id=com.nikohoffren.stolen_gear_app" target="_blank"
+                                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200">
+                                    <i class="fab fa-google-play mr-1"></i> Play Store
+                                </a>
+                                <a href="https://github.com/nikohoffren/stolen-or-not-app" target="_blank"
+                                    class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-200">
+                                    <i class="fab fa-github mr-1"></i> Source
+                                </a>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">Flutter</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">Dart</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- KISS CSS -->
-    <div class="overflow-hidden shadow-lg rounded-lg h-auto md:h-120 w-full md:w-full m-auto">
-      <a href="https://www.npmjs.com/package/kiss-css" target="_blank" class="w-full block h-full">
-        <div id="loader8" class="loader mx-auto"></div>
-        <img src="{{ asset('kiss-css-logo.jpg') }}" alt="KISS CSS logo"
-          class="max-h-40 w-full object-cover" onload="document.getElementById('loader8').style.display = 'none';">
-      </a>
-      <div class="bg-white dark:bg-gray-800 w-full p-4">
-        <h2 class="text-xl font-medium text-black dark:text-white pb-2">
-          KISS CSS - Framework
-        </h2>
-        <p class="text-md text-gray-800 dark:text-white py-2">
-          @if(session('language') === 'en')
-          KISS (Keep It Simple Stylesheets) is a simple, lightweight CSS framework designed for ease of use. It provides a collection
-          of reusable CSS classes and components to quickly style your web projects. Published as npm-package. The website and
-          detailed documentation are still in the production phase. Tools: CSS, JavaScript & Node.js.
-          @else
-          KISS (Keep It Simple Stylesheets) on yksinkertainen ja kevyt CSS-kirjasto, joka on suunniteltu helppokäyttöisyyttä
-          ajatellen. Se tarjoaa kokoelman uudelleenkäytettäviä CSS-luokkia ja komponentteja. Julkaistu npm-pakettina.
-          Web-sivusto ja tarkempi dokumentaatio on vielä tuotantovaiheessa. Työkalut: CSS, JavaScript & Node.js.
-          @endif
-        </p>
-        <a href="https://www.npmjs.com/package/kiss-css" target="_blank" class="text-blue-500 hover:text-blue-300 italic">
-          {{ session('language') === 'en' ? 'Download NPM-package' : 'Lataa NPM-paketti' }}
-        </a>
-        <br>
-        <a href="https://github.com/nikohoffren/kiss-css" target="_blank" class="text-blue-500 hover:text-blue-300 italic">
-          {{ session('language') === 'en' ? 'Github source code' : 'Github lähdekoodi' }}
-        </a>
-        <p class="text-sm text-gray-900 dark:text-white italic my-2">
-          2023 - present
-        </p>
-      </div>
-    </div>
+                <!-- Kuopio Public Transport -->
+                <div class="group relative bg-white/10 dark:bg-gray-800/10 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200/20 dark:border-gray-700/20 overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] flex flex-col h-[500px]">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                        <img src="{{ asset('Vilkku_sydan_violetti.png') }}" alt="Kuopio Public Transport"
+                            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Kuopio Transport</h3>
+                            <span class="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">Web App</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                            {{ session('language') === 'en'
+                                ? 'Real-time tracking and route information for Kuopio public transport.'
+                                : 'Reaaliaikainen seuranta ja reittitiedot Kuopion julkiselle liikenteelle.'
+                            }}
+                        </p>
+                        <div class="mt-auto">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <a href="https://kuopionjulkinenliikenne.live" target="_blank"
+                                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200">
+                                    <i class="fas fa-external-link-alt mr-1"></i> Visit Site
+                                </a>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">React</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">Maps API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Smart Meeting Scheduler -->
-    <div class="overflow-hidden shadow-lg rounded-lg h-auto md:h-120 w-full md:w-full m-auto">
-      <a href="https://chrome.google.com/webstore/detail/smart-meeting-scheduler/icaojehhbdenebdcahljjhnohnjmbpfa" target="_blank" class="w-full block h-full">
-        <div id="loader9" class="loader mx-auto"></div>
-        <img src="{{ asset('smart-meeting-scheduler-logo.jpg') }}" alt="Smart Meeting Scheduler logo"
-          class="max-h-40 w-full object-cover" onload="document.getElementById('loader9').style.display = 'none';">
-      </a>
-      <div class="bg-white dark:bg-gray-800 w-full p-4">
-        <h2 class="text-xl font-medium text-black dark:text-white pb-2">
-          {{ session('language') === 'en' ? 'Smart Meeting Scheduler - Chrome Extension' : 'Smart Meeting Scheduler - Chrome laajennus' }}
-        </h2>
-        <p class="text-md text-gray-800 dark:text-white py-2">
-          @if(session('language') === 'en')
-          The Smart Meeting Scheduler Chrome Extension is a powerful tool designed to simplify and streamline the process of
-          scheduling meetings using Google Calendar. Downloadable in Chrome Webstore!
-          <br><br>
-          Tools: JavaScript, Node.js.
-          @else
-          Smart Meeting Scheduler Chrome -laajennus on tehokas työkalu, joka on suunniteltu helpottamaan ja tehostamaan kokousten
-          ajanvaraamisprosessia käyttäen Google-kalenteria.
-          <br>
-          Ladattavissa Chrome Webstoresta! <br>
-          Työkalut: JavaScript, Node.js.
-          @endif
-        </p>
-        <a href="https://chrome.google.com/webstore/detail/smart-meeting-scheduler/icaojehhbdenebdcahljjhnohnjmbpfa" target="_blank" class="text-blue-500 hover:text-blue-300 italic">
-          {{ session('language') === 'en' ? 'Download from Chrome Web Store' : 'Lataa Chrome Web Store:sta' }}
-        </a>
-        <br>
-        <a href="https://github.com/nikohoffren/smart-meeting-scheduler" target="_blank"
-          class="text-blue-500 hover:text-blue-300 italic">
-          {{ session('language') === 'en' ? 'Github source code' : 'Github lähdekoodi' }}
-        </a>
-        <p class="text-sm text-gray-900 dark:text-white italic my-2">
-          2023 - present
-        </p>
-      </div>
-    </div>
+                <!-- Niko Hoffrén Music -->
+                <div class="group relative bg-white/10 dark:bg-gray-800/10 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200/20 dark:border-gray-700/20 overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] flex flex-col h-[500px]">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                        <img src="{{ asset('NHbackground.jpg') }}" alt="Niko Hoffrén Music"
+                            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Niko Hoffrén Music</h3>
+                            <span class="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">Website</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                            {{ session('language') === 'en'
+                                ? 'Website showcasing my music production work, featuring music samples, videos, and gear information.'
+                                : 'Verkkosivusto musiikkituotantooni liittyvistä asioista, sisältäen musiikkinäytteitä, videoita ja soitintietoja.'
+                            }}
+                        </p>
+                        <div class="mt-auto">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <a href="https://nikohoffrenmusic.netlify.app" target="_blank"
+                                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200">
+                                    <i class="fas fa-external-link-alt mr-1"></i> Visit Site
+                                </a>
+                                <a href="https://github.com/nikohoffren/nikohoffrenmusic-homepage" target="_blank"
+                                    class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-200">
+                                    <i class="fab fa-github mr-1"></i> Source
+                                </a>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">Vite</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">React</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">TypeScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-  </div>
-</section>
+                <!-- KISS CSS -->
+                <div class="group relative bg-white/10 dark:bg-gray-800/10 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200/20 dark:border-gray-700/20 overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] flex flex-col h-[500px]">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                        <img src="{{ asset('kiss-css-logo.jpg') }}" alt="KISS CSS"
+                            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">KISS CSS</h3>
+                            <span class="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">Framework</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                            {{ session('language') === 'en'
+                                ? 'A simple, lightweight CSS framework designed for ease of use, providing reusable CSS classes and components.'
+                                : 'Yksinkertainen ja kevyt CSS-kirjasto, joka on suunniteltu helppokäyttöisyyttä ajatellen, tarjoten uudelleenkäytettäviä CSS-luokkia.'
+                            }}
+                        </p>
+                        <div class="mt-auto">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <a href="https://www.npmjs.com/package/kiss-css" target="_blank"
+                                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200">
+                                    <i class="fab fa-npm mr-1"></i> NPM Package
+                                </a>
+                                <a href="https://github.com/nikohoffren/kiss-css" target="_blank"
+                                    class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-200">
+                                    <i class="fab fa-github mr-1"></i> Source
+                                </a>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">CSS</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">JavaScript</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart Meeting Scheduler -->
+                <div class="group relative bg-white/10 dark:bg-gray-800/10 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200/20 dark:border-gray-700/20 overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] flex flex-col h-[500px]">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                        <img src="{{ asset('smart-meeting-scheduler-logo.jpg') }}" alt="Smart Meeting Scheduler"
+                            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Smart Meeting Scheduler</h3>
+                            <span class="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">Chrome Extension</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                            {{ session('language') === 'en'
+                                ? 'Chrome extension for streamlining meeting scheduling with Google Calendar integration.'
+                                : 'Chrome-laajennus kokousten ajanvaraamisen helpottamiseen Google Calendar -integraatiolla.'
+                            }}
+                        </p>
+                        <div class="mt-auto">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <a href="https://chrome.google.com/webstore/detail/smart-meeting-scheduler/icaojehhbdenebdcahljjhnohnjmbpfa" target="_blank"
+                                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200">
+                                    <i class="fab fa-chrome mr-1"></i> Web Store
+                                </a>
+                                <a href="https://github.com/nikohoffren/smart-meeting-scheduler" target="_blank"
+                                    class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-200">
+                                    <i class="fab fa-github mr-1"></i> Source
+                                </a>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">JavaScript</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">Node.js</span>
+                                <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">Chrome API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Handle image loading to hide loaders once images are loaded
-    const projectImages = document.querySelectorAll('.overflow-hidden img');
-    projectImages.forEach(img => {
-      // Check if the image is already loaded
-      if (img.complete) {
-        const loaderId = img.getAttribute('onload').match(/document\.getElementById\('(.*?)'\)/)[1];
-        const loader = document.getElementById(loaderId);
-        if (loader) {
-          loader.style.display = 'none';
+    function adjustSponsorHeight() {
+        const iframe = document.getElementById('sponsor-iframe');
+        if (window.innerWidth < 550) {
+            iframe.style.height = '170px';
+        } else {
+            iframe.style.height = '110px';
         }
-      }
-    });
-  });
-</script>
+    }
 
-  </div>
-</section>
+    document.addEventListener('DOMContentLoaded', adjustSponsorHeight);
+    window.addEventListener('resize', adjustSponsorHeight);
+</script>
 @endsection

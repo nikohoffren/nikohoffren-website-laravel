@@ -4,60 +4,154 @@
 
 /* Reset default styling */
 @layer base {
-  html, body {
-    @apply overflow-x-hidden max-w-full;
-    width: 100%;
-  }
-
-  ul {
-    @apply list-none;
-  }
-
-  /* Fix any potential layout issues */
-  * {
-    box-sizing: border-box;
-  }
-}
-
-/* Custom button styles */
-@layer components {
-  .btn-shine {
-    @apply relative overflow-hidden bg-blue-600 text-white font-bold py-2 px-6 rounded inline-block transition-all duration-300;
-    background: linear-gradient(to right, #4338ca, #3b82f6, #4338ca);
-    background-size: 200% auto;
-    animation: shine 3s linear infinite;
-  }
-
-  @keyframes shine {
-    to {
-      background-position: 200% center;
+    html,
+    body {
+        @apply overflow-x-hidden max-w-full;
+        width: 100%;
     }
-  }
 
-  /* Add transition styles */
-  .slide-text-enter-active {
-    @apply transition-all duration-500 transform translate-x-0 opacity-100;
-  }
-  .slide-text-enter {
-    @apply -translate-x-12 opacity-0;
-  }
+    ul {
+        @apply list-none;
+    }
 
-  .slide-enter-active {
-    @apply transition-all duration-500 transform translate-y-0 opacity-100;
-  }
-  .slide-enter {
-    @apply translate-y-12 opacity-0;
-  }
+    * {
+        box-sizing: border-box;
+    }
 
-  /* Loader */
-  .loader {
-    @apply border-4 border-gray-200 rounded-full w-12 h-12;
-    border-top-color: #3498db;
-    animation: spin 1s linear infinite;
-  }
+    body {
+        @apply bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800;
+        font-family: "Inter", sans-serif;
+        position: relative;
+        min-height: 100vh;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-bold tracking-tight;
+    }
+
+    h1 {
+        @apply text-4xl md:text-5xl lg:text-6xl;
+    }
+
+    h2 {
+        @apply text-3xl md:text-4xl lg:text-5xl;
+    }
+
+    h3 {
+        @apply text-2xl md:text-3xl lg:text-4xl;
+    }
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* Modern UI Components */
+@layer components {
+    .btn-primary {
+        @apply px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300;
+        background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+        box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2);
+    }
+
+    .btn-primary:hover {
+        @apply transform -translate-y-1;
+        box-shadow: 0 6px 8px -1px rgba(99, 102, 241, 0.3);
+    }
+
+    .card {
+        @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition-all duration-300;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card:hover {
+        @apply transform -translate-y-1;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-link {
+        @apply text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200;
+    }
+
+    .section {
+        @apply py-16 md:py-24;
+    }
+
+    .container {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    /* Navbar styles */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(229, 231, 235, 0.2);
+    }
+
+    .dark nav {
+        background-color: rgba(17, 24, 39, 0.7);
+        border-bottom: 1px solid rgba(55, 65, 81, 0.2);
+    }
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Modern transitions */
+.slide-up-enter-active {
+    @apply transition-all duration-500 transform translate-y-0 opacity-100;
+}
+
+.slide-up-enter {
+    @apply translate-y-12 opacity-0;
+}
+
+.fade-in {
+    @apply transition-opacity duration-500;
+}
+
+.fade-in-enter {
+    @apply opacity-0;
+}
+
+.fade-in-enter-active {
+    @apply opacity-100;
+}
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+    @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-indigo-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-indigo-600;
 }
