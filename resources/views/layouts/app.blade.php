@@ -8,7 +8,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <title>Niko Hoffrén Homepage</title>
+    <title>Niko Hoffrén Homepage{{ request()->segment(1) ? ': ' . ucfirst(request()->segment(1)) : '' }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
