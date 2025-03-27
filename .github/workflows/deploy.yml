@@ -22,8 +22,8 @@ jobs:
 
       - name: Deploy to Linode
         run: |
-          # Pull latest changes
-          ssh ${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }} 'cd /var/www/nikohoffren-website && git pull origin main'
+          # Stash any local changes and pull latest changes
+          ssh ${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }} 'cd /var/www/nikohoffren-website && git stash && git pull origin main'
 
           # Install/update dependencies
           ssh ${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }} 'cd /var/www/nikohoffren-website && composer install --no-interaction --prefer-dist --optimize-autoloader'
