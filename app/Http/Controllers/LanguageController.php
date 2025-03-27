@@ -26,6 +26,7 @@ class LanguageController extends Controller
 
         return redirect()->back();
     }
+    
 
     /**
      * Switch the theme.
