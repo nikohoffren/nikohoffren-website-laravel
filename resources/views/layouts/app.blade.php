@@ -129,8 +129,8 @@
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress"></div>
 
-    <!-- Navbar -->
-    @include('partials.navbar')
+    <!-- Header Component -->
+    <x-header />
 
     <!-- Content -->
     <main class="relative pt-16">
@@ -139,8 +139,8 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    @include('partials.footer')
+    <!-- Footer Component -->
+    <x-footer />
 
     <!-- Animation and Scroll JavaScript -->
     <script>
@@ -254,18 +254,18 @@
                 });
             }
 
-            // Hide loader when profile image is loaded
-            const profileImage = document.getElementById('profileImage');
-            const loader = document.getElementById('loader');
+            // Mobile menu functionality
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileMenuIcon = mobileMenuButton.querySelector('svg:not(.hidden)');
+            const mobileMenuCloseIcon = mobileMenuButton.querySelector('svg.hidden');
 
-            if (profileImage && loader) {
-                if (profileImage.complete) {
-                    loader.style.display = 'none';
-                } else {
-                    profileImage.addEventListener('load', function() {
-                        loader.style.display = 'none';
-                    });
-                }
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenuIcon.classList.toggle('hidden');
+                    mobileMenuCloseIcon.classList.toggle('hidden');
+                });
             }
         });
     </script>
